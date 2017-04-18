@@ -1,5 +1,5 @@
 # react-firebase-hoc
-React Higher Order Components for React and React Native
+React Higher Order Components for Firebase. Compatible with React and React Native.
 
 [![npm version](https://badge.fury.io/js/react-firebase-hoc.svg)](https://badge.fury.io/js/react-firebase-hoc)
 
