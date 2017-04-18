@@ -1,13 +1,16 @@
 # react-firebase-hoc
 React Higher Order Components for React and React Native
 
+[![npm version](https://badge.fury.io/js/react-firebase-hoc.svg)](https://badge.fury.io/js/react-firebase-hoc)
+
+
 ## Requirements
 - Bundler that supports ES7 Async/await (Both [CRA](https://github.com/facebookincubator/create-react-app) and [CRNA](https://github.com/react-community/create-react-native-app) supported it)
 
 ## How to use
 1. Install the package
    ```sh
-   npm i react-firebase-hoc
+   npm install react-firebase-hoc
    ```
 
 2. Use them on your component
@@ -18,10 +21,12 @@ React Higher Order Components for React and React Native
    const firebaseConfig = {...};
    const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-   // later after component declaration...
-   // 1st param is the firebaseApp instance
-   // 2nd param is the namespace for the fetched data
-   // 3rd param is the callback, (db, props, state)
+   /**
+    * later after component declaration...
+    * 1st param is the firebaseApp instance
+    * 2nd param is the namespace for the fetched data
+    * 3rd param is the callback, (db, props, state)
+    */
    const MyComponentWithData = FetchOnce(firebaseApp, 'users',
     (db) => db.ref('users'))(MyComponent)
 
@@ -46,7 +51,18 @@ You also have access to the props and state on the callback HOC
 ```
 
 ## Tips
-You can re-wrap the HOC if you always use one firebaseApp instance
+You can re-wrap the HOC if you always use one firebaseApp instance, for example:
+```js
+import * as firebase from 'firebase';
+import { FetchOnce as FetchOnceOrig } from 'react-firebase-hoc';
+
+const firebaseConfig = {...};
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+function FetchOnce(propName, callback) {
+  return FetchOnceOrig(firebaseApp, propName, callback);
+}
+```
 
 ## License
 MIT
