@@ -1,0 +1,27 @@
+{
+  "name": "react-firebase-hoc",
+  "version": "0.0.2",
+  "description": "React HOC for Firebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonybudianto/react-firebase-hoc.git"
+  },
+  "keywords": [
+    "react",
+    "hoc",
+    "firebase"
+  ],
+  "author": "Antony Budianto <antonybudianto@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antonybudianto/react-firebase-hoc/issues"
+  },
+  "homepage": "https://github.com/antonybudianto/react-firebase-hoc#readme",
+  "peerDependencies": {
+    "react": "*"
+  }
+}
