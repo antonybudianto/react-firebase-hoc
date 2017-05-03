@@ -1,11 +1,11 @@
 import React from 'react';
 
-export function FetchOnce(firebaseApp, propName, callback) {
+export default function FetchOnce(firebaseApp, propName, callback) {
   return function(WrappedComponent) {
     return class HOC extends React.Component {
       state = {
         loading: false,
-        data: [],
+        data: null,
         error: null
       };
 
@@ -21,14 +21,7 @@ export function FetchOnce(firebaseApp, propName, callback) {
         try {
           const snapshot = await asyncCallback(firebaseApp.database(), this.props, this.state)
           .once('value');
-
-          const val = snapshot.val();
-          const keys = Object.keys(val);
-          const values = Object.values(val);
-          const data = values.map((item, index) => {
-            item['$uid'] = keys[index];
-            return item;
-          });
+          const data = snapshot.val();
 
           this.setState({
             data,
