@@ -40,7 +40,7 @@ React [Higher Order Components](https://facebook.github.io/react/docs/higher-ord
    // users is the namespace specified on the first param of HOC
    console.log(this.props.users.loading) // true/false
    console.log(this.props.users.error) // null/object
-   console.log(this.props.users.data) // Array
+   console.log(this.props.users.data) // null/object
    ```
 
 ## Callback parameters
